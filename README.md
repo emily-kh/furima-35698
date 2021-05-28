@@ -53,7 +53,7 @@ Things you may want to cover:
 | area_id        | integer    | null: false       |
 | period_id      | integer    | null: false       |
 | category_id    | integer    | null: false       |
-| user_id        | references | foreign_key: true |
+| user           | references | foreign_key: true |
 
 ### Association
 
@@ -79,16 +79,16 @@ Things you may want to cover:
 | Column        | Type       | Options           |
 | ------------- | ---------- | ----------------- |
 | postcode      | string     | null: false       |
-| active_hash   | integer    | null: false       |
+| area_id       | integer    | null: false       |
 | city          | string     | null: false       |
 | block         | string     | null: false       |
-| building      | text       |                   |
+| building      | string     |                   |
 | phone_number  | string     | null: false       |
 | purchase      | references | foreign_key: true |
 
 ### Association
 
-- has_one : purchases
+- belongs_to : purchases
 - has_many : comments
 
 ## comments テーブル
