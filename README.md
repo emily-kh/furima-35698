@@ -24,41 +24,75 @@ Things you may want to cover:
 * ...
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| nickname | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| name     | string | null: false |
-| birthday | string | null: false |
+| Column        | Type     | Options      |
+| ------------- | -------- | ------------ |
+| nickname      | string   | null: false  |
+| email         | string   | unique: true |
+| password      | string   | null: false  |
+| last_name     | string   | null: false  |
+| first_name    | string   | null: false  |
+| last_name_fu  | string   | null: false  |
+| first_name_fu | string   | null: false  |
+| date          | datetime | null: false  |
 
 ### Association
 
 - has_many : items
 - has_many : purchases
+- has_one : address
+- has_many : comments
 
 ## items テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| itemname | string | null: false |
-| category | string | null: false |
-| price    | string | null: false |
-| seller   | string | null: false |
+| Column    | Type       | Options           |
+| --------- | ---------- | ----------------- |
+| itemname  | text       | null: false       |
+| price     | integer    | null: false       |
+| user      | references | foreign_key: true |
+| category  | text       | null: false       |
+| condition | text       | null: false       |
+| area      | string     | null: false       |
+| period    | datetime   | null: false       |
 
 
 ### Association
 
 - belongs_to : users
 - has_one : purchases
-
+- has_one : address
+- has_many : comments
 
 ## purchases テーブル
 
-| Column  | Type       | Options     |
-| ------- | ---------- | ----------- |
-| buyer   | string     | null: false |
-| address | string     | null: false |
+| Column  | Type       | Options           |
+| ------- | ---------- | ----------------- |
+| user    | references | foreign_key: true |
+| item    | references | foreign_key: true |
+
+### Association
+
+- belongs_to : users
+- belongs_to : items
+- has_one : address
+- has_many : comments
+
+## address テーブル
+| Column   | Type       | Options           |
+| -------- | ---------- | ----------------- |
+| user     | references | foreign_key: true |
+| item     | references | foreign_key: true |
+
+### Association
+
+- belongs_to : users
+- belongs_to : items
+- has_one : purchases
+- has_many : comments
+
+## comments テーブル
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| text     | text   | null: false |
 
 ### Association
 
