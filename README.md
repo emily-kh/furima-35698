@@ -43,17 +43,17 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column      | Type       | Options           |
-| ----------- | ---------- | ----------------- |
-| item_name   | text       | null: false       |
-| description | text       | null: false       |
-| price       | integer    | null: false       |
-| condition   | text       | null: false       |
-| burden      | boolean    | null: false       |
-| area        | string     | null: false       |
-| period      | datetime   | null: false       |
-| category    | text       | null: false       |
-| user        | references | foreign_key: true |
+| Column         | Type       | Options           |
+| -------------- | ---------- | ----------------- |
+| name           | string     | null: false       |
+| description    | text       | null: false       |
+| price          | integer    | null: false       |
+| condition_id   | integer    | null: false       |
+| burden_id      | integer    | null: false       |
+| area_id        | integer    | null: false       |
+| period_id      | integer    | null: false       |
+| category_id    | integer    | null: false       |
+| user_id        | references | foreign_key: true |
 
 ### Association
 
@@ -78,18 +78,16 @@ Things you may want to cover:
 ## address テーブル
 | Column        | Type       | Options           |
 | ------------- | ---------- | ----------------- |
-| postcode      | integer    | null: false       |
-| prefecture_id | text       | null: false       |
-| city          | text       | null: false       |
-| block         | integer    | null: false       |
-| building      | text       | null: false       |
-| phone_number  | integer    | null: false       |
+| postcode      | string     | null: false       |
+| active_hash   | integer    | null: false       |
+| city          | string     | null: false       |
+| block         | string     | null: false       |
+| building      | text       |                   |
+| phone_number  | string     | null: false       |
 | purchase      | references | foreign_key: true |
 
 ### Association
 
-- belongs_to : users
-- belongs_to : items
 - has_one : purchases
 - has_many : comments
 
