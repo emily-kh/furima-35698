@@ -1,27 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 ## users テーブル
 
 | Column             | Type     | Options                  |
@@ -62,7 +38,7 @@ Things you may want to cover:
 - has_many : comments
 
 
-## purchase_user テーブル
+## purchase_users テーブル
 
 | Column  | Type       | Options           |
 | ------- | ---------- | ----------------- |
@@ -92,9 +68,9 @@ Things you may want to cover:
 - belongs_to : purchase_user
 
 ## comments テーブル
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| text     | text       | null: false |
+| Column   | Type       | Options           |
+| -------- | ------     | -----------       |
+| text     | text       | null: false       |
 | user     | references | foreign_key: true |
 | item     | references | foreign_key: true |
 
