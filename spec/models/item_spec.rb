@@ -96,6 +96,26 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include ("User must exist")
       end
+      it 'condition_idが1の場合は出品できないこと' do
+        @item.condition_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include ("Condition must be other than 1")
+      end
+      it 'burden_idが1の場合は出品できないこと' do
+        @item.burden_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include ("Burden must be other than 1")
+      end
+      it 'prefecture_idが1の場合は出品できないこと' do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include ("Prefecture must be other than 1")
+      end
+      it 'category_idが1の場合は出品できないこと' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include ("Category must be other than 1")
+      end
     end
   end
 end
