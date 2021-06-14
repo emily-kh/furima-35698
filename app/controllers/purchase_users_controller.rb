@@ -1,8 +1,8 @@
 class PurchaseUsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :emi_params
+  before_action :authenticate_user!,only: [:index]
+  before_action :emi_params, only: [:index, :create]
   before_action :ami_params, only: [:index]
-  
+
   def index
     @purchase_user_address = PurchaseUserAddress.new
   end
