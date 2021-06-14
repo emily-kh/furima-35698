@@ -28,7 +28,7 @@ class PurchaseUsersController < ApplicationController
 
   def ami_params
     redirect_to root_path if  @item.purchase_user.present? || current_user.id == @item.user.id 
-    end
+    
   end
 
   def purchase_user_params
