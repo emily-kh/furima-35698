@@ -29,7 +29,7 @@ class PurchaseUsersController < ApplicationController
   def ami_params
     redirect_to root_path if  @item.purchase_user.present? || current_user.id == @item.user.id 
     end
-  
+  end
 
   def purchase_user_params
     params.require(:purchase_user_address).permit(:postal_code, :prefecture_id, :city, :house_number, :phone_number, :price, :user, :item).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
@@ -44,4 +44,4 @@ class PurchaseUsersController < ApplicationController
     )
   end
 end
-end
+
